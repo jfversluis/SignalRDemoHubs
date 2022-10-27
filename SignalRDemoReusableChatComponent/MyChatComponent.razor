@@ -1,0 +1,82 @@
+﻿@inject NavigationManager navigationManager
+@using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.AspNetCore.Components.Web
+
+<h1>Blazor SignalR Chat</h1>
+<hr />
+
+<div id="scrollbox">
+    <div class="container">
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-2">User</div>
+            <div class="col-4"><input placeholder="Your name .." @bind="@_username" /></div>
+        </div>
+        <div class="row">
+            <div class="col-2">Message</div>
+            <div class="col-4"><input placeholder="Your message .." @bind="@_message" /></div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-6">
+                <button @onclick="@(() => SendAsync(_username,_message))">Send</button>
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <ul>
+                @foreach (var item in _messages)
+                {
+                    <li>
+                        <label>@item.ToString()</label>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _username = string.Empty;
+    private string _message = string.Empty;
+    private List<string> _messages = new List<string>();
+
+    private HubConnection? _hubConnection;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _messages.Clear();
+
+            var ip = "localhost";
+            _hubConnection = new HubConnectionBuilder().WithUrl($"https://{ip}:7177/chatHub").Build();
+
+            _hubConnection.On<string, string>("ReceiveMessage", MessageReceived);
+
+            await _hubConnection.StartAsync();
+        }
+        catch (Exception e)
+        {
+            // Some error handling.
+        }
+    }
+
+
+    private void MessageReceived(string username, string message)
+    {
+        _messages.Add(username + " said " + message);
+
+        StateHasChanged();
+    }
+
+    private async Task SendAsync(string username, string message)
+    {
+
+        await _hubConnection.SendAsync("SendMessage", username, message);
+
+        _username = string.Empty;
+        _message = string.Empty;
+
+    }
+}
