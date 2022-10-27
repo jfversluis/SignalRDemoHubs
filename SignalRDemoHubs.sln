@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRDemoBlazorClient", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRDemoReusableChatComponent", "SignalRDemoReusableChatComponent\SignalRDemoReusableChatComponent.csproj", "{2F2B93DC-C4A8-4468-9D20-B38FD6068429}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDemoMauiClient", "SignalRDemoMauiClient\SignalRDemoMauiClient.csproj", "{8FE39251-08A3-4DD1-A236-CB35DA001097}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRDemoMauiClient", "SignalRDemoMauiClient\SignalRDemoMauiClient.csproj", "{8FE39251-08A3-4DD1-A236-CB35DA001097}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDemoMauiBlazorClient", "SignalRDemoMauiBlazorClient\SignalRDemoMauiBlazorClient.csproj", "{3D4DC90D-7EF0-496A-AD43-58E3D30B5524}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,12 @@ Global
 		{8FE39251-08A3-4DD1-A236-CB35DA001097}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FE39251-08A3-4DD1-A236-CB35DA001097}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FE39251-08A3-4DD1-A236-CB35DA001097}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3D4DC90D-7EF0-496A-AD43-58E3D30B5524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4DC90D-7EF0-496A-AD43-58E3D30B5524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4DC90D-7EF0-496A-AD43-58E3D30B5524}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3D4DC90D-7EF0-496A-AD43-58E3D30B5524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4DC90D-7EF0-496A-AD43-58E3D30B5524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4DC90D-7EF0-496A-AD43-58E3D30B5524}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
